@@ -24,6 +24,16 @@
 #define MAX_GPX   8
 #define MAX_RESET 7
 
+// The following condition is used to handle old Sparkfun shields which have the GPX and RESET pins swapped
+// http://www.sparkfun.com/products/9628
+#ifdef SPARKFUN_9628_SHIELD
+    #undef MAX_GPX   
+    #undef MAX_RESET 
+
+    #define MAX_GPX   7
+    #define MAX_RESET 8
+#endif
+
 /* "Breakpoint" pins for debugging */
 //#define BPNT_0      3
 //#define BPNT_1      2
